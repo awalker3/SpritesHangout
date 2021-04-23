@@ -1,0 +1,46 @@
+body {
+    background-color:#C9BEDA;
+    letter-spacing: 3px;
+    font-family: "verdana"
+}
+
+h1 {
+    color:#E85B51;
+}
+
+h3 {
+    color:#E79574;
+}
+
+ul {
+    list-style: square
+}
+
+ol {
+    list-style-type: none;
+    counter-reset: elementcounter;
+}
+
+#tasks li:before {
+    content: "Task #" counter(elementcounter) " - ";
+    counter-increment: elementcounter;
+    font-weight: bold;
+}
+
+p, li {
+    color:#524162;
+
+}
+
+img {
+    border:10px;
+}
+
+td {
+    padding:2px;
+}
+button {
+    border-radius: 8px;
+    width: 100px;
+    height: 20px;
+}

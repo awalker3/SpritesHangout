@@ -1,0 +1,13 @@
+@()(implicit request: RequestHeader, flash: Flash)
+
+@main("Sprites Hangout") {
+    <input type="hidden" id="sprite-route" value="@routes.Application.socket.absoluteURL()">
+    <button id="redButton" type="button" onclick="colorChange('#ef476f')">Red</button>
+    <button id="yellowButton" type="button" onclick="colorChange('#ffd166')">Yellow</button>
+    <button id="greenButton" type="button" onclick="colorChange('#06d6a0')">Green</button>
+    <button id="blueButton" type="button" onclick="colorChange('#118ab2')">Blue</button>
+    <button id="defaultButton" type="button" onclick="colorChange('#073b4c')">Default</button>
+    <br>
+    <canvas id="main-canvas" width="400" height="400"></canvas>
+    <script src="@routes.Assets.versioned("javascript/sprites.js")"
+}
