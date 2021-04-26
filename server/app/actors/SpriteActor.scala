@@ -12,7 +12,6 @@ class SpriteActor(out: ActorRef, manager: ActorRef, var x: Int, var y: Int, var 
     manager ! SpriteManager.NewSprite(self, x, y, color)
     import SpriteActor._
     def receive = {
-        case (a,b,c,d) => println("wut")
         case DrawSprite(lst) => out ! Json.toJson(lst).toString()
         case s: String => stringParse(s)
         case m => println("Unhandled message in SpriteActor: " + m)
@@ -23,7 +22,7 @@ class SpriteActor(out: ActorRef, manager: ActorRef, var x: Int, var y: Int, var 
         match {
             case JsSuccess (tup, path) => tup
             case JsError (error) => {
-                println("error in SpriteActor parsing: " + error)
+                println("Error in SpriteActor parsing: " + error)
                 (0, 0, "error")
             }
         }
