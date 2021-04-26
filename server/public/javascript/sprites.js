@@ -21,10 +21,11 @@ socket.onmessage = (event) => {
     console.log(event.data);
 
     let sprites = JSON.parse(event.data)
-    for (let i=0; i<sprites.length; i++) {
-        let pcolor = sprites[i][2]
-        let x = sprites[i][0]
-        let y = sprites[i][1]
+    for (let i=0; i < sprites.length; i++) {
+        
+        let x = sprites[i][0];
+        let y = sprites[i][1];
+        let pcolor = sprites[i][2];
         gc.fillStyle = pcolor;
         gc.fillRect(x, y, psize, psize);
     }
@@ -52,8 +53,6 @@ function move(e) {
 function drawPlayer(x,y,size) {
     gc.fillStyle = pcolor;
     gc.fillRect(x, y, size, size);
-    //socket.send("actors.SpriteActor.DrawSprite(100, 100, 50, #073b4c)");
-    //socket.send("200, 100, 50, color");
     socket.send(JSON.stringify([x, y, pcolor]));
 }
 
