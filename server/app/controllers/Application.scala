@@ -17,7 +17,7 @@ import akka.actor.Props
 
 @Singleton
 class Application @Inject()(cc: ControllerComponents)(implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc) {
-  val manager = system.actorOf(Props[SpriteManager], "Manager")
+  val manager = system.actorOf(Props(new SpriteManager), "Manager")
 
   def index = Action { implicit request =>
     Ok(views.html.sprites())

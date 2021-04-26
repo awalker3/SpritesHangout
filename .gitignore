@@ -36,3 +36,6 @@ shared/.jvm
 .cache
 .target
 bin/
+
+#Evil long names
+null/
